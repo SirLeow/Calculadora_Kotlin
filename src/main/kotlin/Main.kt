@@ -1,5 +1,7 @@
+import kotlin.math.pow
+
 val operatorList = arrayOf("Soma","Multiplicacao","Divisao","Resto","Exponencial","Fatorial")
-var a:Float = 0.0F; val b:Float = 0.0F
+var a:Float = 0.00F; val b:Float = 0.00F
 var cont = true
 fun main()  {
     while (cont) {
@@ -15,7 +17,9 @@ fun main()  {
                 "2" -> println("Resultado:\n${calculator(a, b, 2, ::multi)}")
                 "3" -> println("Resultado:\n${calculator(a, b, 3, ::div)}")
                 "4" -> println("Resultado:\n${calculator(a, b, 4, ::rest)}")
-                else -> println("Error - Insira um valor valido")
+                "5" -> println("Resultado:\n${calculator(a, b, 5, ::power)}")
+
+                else -> println("\nError - Insira um valor valido")
             }
         } catch (e: NumberFormatException) {
             println("\nError - Insira um valor valido")
@@ -44,3 +48,5 @@ fun soma(a:Float, b:Float) = a+b
 fun multi(a:Float, b:Float) = a*b
 fun div(a:Float, b:Float) = a/b
 fun rest(a:Float, b:Float) = a%b
+fun power(a:Float, b:Float) = a.pow(b)
+
